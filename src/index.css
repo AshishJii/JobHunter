@@ -7,7 +7,105 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  height: 100vh;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: darkgrey;
+}
+.nav-links li {
+  margin-left: 20px;
+}
+
+form {
+  margin-top: 1rem;
+}
+form div {
+  margin-bottom: 0.5rem;
+}
+button {
+  padding: 0.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+form {
+  margin-top: 1rem;
+}
+
+form div {
+  margin-bottom: 0.5rem;
+}
+
+button {
+  padding: 0.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.appContainer{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-image: url('./images/homeBackground.jpg');
+  justify-content: center;
+  align-items: center;
+}
+
+.homeContainer h1,
+.homeContainer p{
+  color: white;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
 }
