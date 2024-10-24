@@ -11,7 +11,7 @@ export default function Register(){
 
     const handleRegister = (e) => {
         e.preventDefault();
-        console.log("Submit",registerData);
+        console.log("Submitting: ",registerData);
         //Note: Send async POST Call to server
     }
 
@@ -22,12 +22,12 @@ export default function Register(){
             ...registerData,
             [name]: value
         })
-        console.log("Update",registerData);
+        // console.log("Updated values: ",registerData);
     }
 
     return (
         <div className='formContainer'>
-            <h2>Register</h2>
+            <h2 className='formHeading'>Register</h2>
             <form onSubmit={handleRegister} >
                 <div>
                     <label>Name:</label>
