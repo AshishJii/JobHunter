@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# JobHunter: Spring Boot + React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a full-stack application for job portal website.
 
-## Available Scripts
+## Project Structure
 
-In the project directory, you can run:
+- **Frontend**: React app located in the `/frontend` directory.
+- **Backend**: Spring Boot API located in the `/backend` directory.
 
-### `npm start`
+## Requirements
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Java 17+** (for Spring Boot)
+- **Node.js 14+** (for React development)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup Instructions
 
-### `npm test`
+### 1. Clone the Repository
+Clone the repository to your local machine:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/AshishJii/JobHunter.git
+cd JobHunter
+```
 
-### `npm run build`
+### 2. Setting up the Frontend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Install dependencies for React:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Navigate to the `frontend` directory and install the necessary packages:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+cd frontend
+npm install
+```
 
-### `npm run eject`
+#### Run the React development server:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Your React app will be running at [http://localhost:3000](http://localhost:3000).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 3. Setting up the Backend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Install dependencies for Spring Boot:
 
-## Learn More
+Navigate to the `backend` directory and run Maven to install dependencies.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+cd backend
+mvn clean install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Run the Spring Boot application:
 
-### Code Splitting
+```bash
+mvn spring-boot:run    # for Maven
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Your Spring Boot app will be running at [http://localhost:8080](http://localhost:8080).
 
-### Analyzing the Bundle Size
+## Environment Variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+You can configure the `application.properties` file in backend folder to insert correct mysql database configuration.
 
-### Making a Progressive Web App
+## API Documentation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The API is built with Spring Boot. You can view all the enabled API at:
 
-### Advanced Configuration
+```
+http://localhost:8080/swagger-ui/
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contributing
 
-### Deployment
+We welcome contributions to improve the project. To get started:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Fork the repository.
+2. Create a new feature branch.
+3. Commit your changes.
+4. Push to your fork and submit a pull request.
 
-### `npm run build` fails to minify
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
