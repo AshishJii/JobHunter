@@ -9,10 +9,35 @@ export default function Register(){
         cnpassword: '',
     });
 
-    const handleRegister = (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
         console.log("Submitting: ",registerData);
+
+
         //Note: Send async POST Call to server
+        try {
+            const response = await fetch('http://localhost:8080/api/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(registerData)
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log("Registration successful: ", data);
+                alert("USer registered")
+            } else {
+                const errorData = await response.json();
+                console.error("Registration failed: ", errorData);
+                alert(errorData)
+            }
+        } catch (error) {
+            console.error("Error occurred while registering: ", error);
+            alert("Network error",error);
+        }
+
     }
 
     const handleChange = (e) => {
