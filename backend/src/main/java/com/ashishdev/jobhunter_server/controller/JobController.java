@@ -15,8 +15,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping(value = "/jobs", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/jobs", produces = MediaType.APPLICATION_JSON_VALUE)
 public class JobController {
     private final JobService jobService;
 
@@ -24,10 +26,12 @@ public class JobController {
         this.jobService = jobService;
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<List<Job>> allJobs() {
+        System.out.println("hi");
         List <Job> jobs = jobService.allJobs();
-        return ResponseEntity.ok(jobs);
+        System.out.println(jobs);
+        return new ResponseEntity<>(jobs, HttpStatus.OK);
     }
 
     @PostMapping

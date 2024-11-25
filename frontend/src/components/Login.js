@@ -1,16 +1,48 @@
 import React, {useState} from 'react';
+import axiosClient  from '../utils/AxiosClient'
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Login(){
+    const navigate = useNavigate();
+    const { login } = useAuth();
+
     const [loginData, setLoginData] = useState({
         email: '',
         password: ''
     });
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
+        try {
+            console.log("Submitting: ", loginData);
+
+            await login(loginData);
+
+            navigate('/jobs');
+        } catch (error) {
+            console.error('Login error:', error);
+        }
+
+
+        /* e.preventDefault();
         console.log("Submitting: ",loginData);
-        //Note: Send async POST Call to server
-        // alert('Sending call to server:',JSON.stringify(loginData))
+
+        console.log('sending request to server')
+
+        await login(loginData);
+
+        axiosClient.post('http://localhost:8080/auth/login', loginData)
+            .then(response => {
+                console.log('Login successful:', response.data);
+                localStorage.setItem('token', response.data.token);
+                console.log(response.data.token)
+
+                navigate('/jobs');
+            })
+            .catch(error => {
+                console.error('Login error:', error);
+            }); */
     }
 
     const handleChange = (e) => {
