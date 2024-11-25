@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import axiosClient from '../utils/AxiosClient';
 
 export default function Register(){
     const [registerData, setRegisterData] = useState({
@@ -6,38 +7,26 @@ export default function Register(){
         mobile: '',
         email: '',
         password: '',
-        cnpassword: '',
     });
 
     const handleRegister = async (e) => {
         e.preventDefault();
         console.log("Submitting: ",registerData);
 
-
         //Note: Send async POST Call to server
-        try {
-            const response = await fetch('http://localhost:8080/api/users', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(registerData)
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                console.log("Registration successful: ", data);
-                alert("USer registered")
-            } else {
-                const errorData = await response.json();
-                console.error("Registration failed: ", errorData);
-                alert(errorData)
-            }
-        } catch (error) {
-            console.error("Error occurred while registering: ", error);
-            alert("Network error",error);
+        if (registerData.password !== registerData.cnpassword) {
+            alert("Passwords do not match");
+            return;
         }
 
+        try {
+            const response = await axiosClient.post('http://localhost:8080/auth/signup', registerData);
+            console.log("Registration successful: ", response.data);
+            alert("User registered successfully");
+        } catch (error) {
+            console.error("Error occurred while registering: ", error.response?.data || error.message);
+            alert(error.response?.data?.message || "An error occurred while registering");
+        }
     }
 
     const handleChange = (e) => {

@@ -20,6 +20,7 @@ function App() {
           <li><Link to="/">Home</Link></li>
           {user ? (
             <>
+              <li><Link to="/jobs">Jobs</Link></li>
               <li><Link to="/profile">My Profile</Link></li>
               <li><a
                   href="#logout"
