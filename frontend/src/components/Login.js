@@ -5,7 +5,7 @@ import { useAuth } from '../contexts/AuthContext';
 
 export default function Login(){
     const navigate = useNavigate();
-    const { login } = useAuth();
+    const { user, login } = useAuth();
 
     const [loginData, setLoginData] = useState({
         email: '',
@@ -17,9 +17,14 @@ export default function Login(){
         try {
             console.log("Submitting: ", loginData);
 
-            await login(loginData);
+            const loggedInUser = await login(loginData);
 
-            navigate('/jobs');
+            if(loggedInUser.role === 'SEEKER'){
+                navigate('/jobs');
+            }
+            else{
+                navigate('/applications');
+            }
         } catch (error) {
             console.error('Login error:', error);
         }

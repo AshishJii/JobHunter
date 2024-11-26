@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class JobCreateDTO {
-    private String title;
-    private String description;
+public class ApplicationDetailsDto {
     private String companyName;
-    private String salary;
+    private String jobTitle;
+    private String seekerName;
+    private String skills;
 }

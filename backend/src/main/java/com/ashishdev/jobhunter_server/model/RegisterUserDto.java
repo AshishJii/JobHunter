@@ -22,4 +22,6 @@ public class RegisterUserDto {
     @Size(max = 255)
     private String password;
 
+    @Size(max = 255)
+    private String skills;
 }

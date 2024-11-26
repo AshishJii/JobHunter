@@ -26,7 +26,7 @@ public class Job {
     private String companyName;
 
     @Column
-    private Double salary;
+    private String salary;
 
     @CreationTimestamp
     @Column(updatable = false, name = "created_at")

@@ -1,0 +1,61 @@
+.admin-users-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px; /* Rounded corners for the container */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+    position: absolute; /* Use absolute positioning */
+    top: 50%; /* Move to 50% from the top of the page */
+    left: 50%; /* Move to 50% from the left of the page */
+    transform: translate(-50%, -50%); /* Adjust to center the container */
+    max-width: 1200px; /* Max width to prevent overflowing */
+    width: 90%; /* Responsive width */
+    margin: 0; /* Remove default margin */
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.admin-users-table {
+    width: 100%;
+    border-collapse: separate; /* Ensure borders are not collapsed */
+    border-spacing: 0; /* Remove any spacing between borders */
+    margin-top: 20px;
+    border-radius: 10px; /* Rounded corners for the whole table */
+    overflow: hidden; /* Ensures the rounded corners are visible */
+}
+
+.admin-users-table th, .admin-users-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.admin-users-table th {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+}
+
+.admin-users-table td {
+    background-color: white;
+    font-size: 14px;
+}
+
+.admin-users-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.admin-users-table tr:hover {
+    background-color: #e0e0e0; /* Slightly lighter hover effect */
+    transform: translateY(-2px); /* Adding subtle lift effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adding box shadow on hover */
+}
+
+/* Styling for each row to match the card's design */
+.admin-users-table tr {
+    transition: transform 0.3s ease-in-out;
+}

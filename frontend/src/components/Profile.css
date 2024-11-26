@@ -1,3 +1,4 @@
+
 .profile-container {
     padding: 2rem;
     text-align: center;
@@ -6,26 +7,66 @@
 .profile-card {
     margin: 0 auto;
     max-width: 400px;
-    padding: 1.5rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
+    padding: 2rem; /* Increased padding for more space */
+    border: none; /* Remove the border for a cleaner look */
+    border-radius: 12px; /* Rounded corners for the profile card */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Deeper box shadow for more depth */
+    background-color: #ffffff; /* Clean white background */
     text-align: left;
+    transition: transform 0.3s ease-in-out; /* Smooth transition effect on hover */
+}
+
+.profile-card:hover {
+    transform: translateY(-5px); /* Subtle lift effect on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
 }
 
 .profile-card h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.6rem; /* Slightly larger font size */
+    margin-bottom: 1.5rem; /* Increased margin for better spacing */
     color: #333;
 }
 
 .profile-card p {
     font-size: 1rem;
-    margin: 0.5rem 0;
+    margin: 0.8rem 0; /* Slightly larger margin for more spacing */
     color: #555;
 }
 
 .profile-card p strong {
-    color: #222;
+    color: #222; /* Darker color for emphasized text */
+}
+
+.applications-table {
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.applications-table th,
+.applications-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.applications-table th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.applications-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+@media (max-width: 600px) {
+    .profile-card {
+        padding: 1.5rem; /* Adjust padding on small screens */
+        max-width: 100%; /* Make sure the profile card is responsive */
+    }
+
+    .applications-table td,
+    .applications-table th {
+        padding: 8px;
+    }
 }

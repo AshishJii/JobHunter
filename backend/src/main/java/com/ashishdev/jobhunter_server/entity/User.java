@@ -32,6 +32,15 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String password;
 
+    private Role role;
+
+    @Column
+    private String skills;
+
+    public enum Role {
+        ADMIN, SEEKER
+    }
+
     @CreationTimestamp
     @Column(updatable = false, name = "created_at")
     private Date createdAt;
