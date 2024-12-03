@@ -50,7 +50,7 @@ Below is the UML diagram that illustrates the architecture and relationships of 
 
 Before you start setting up the project, ensure that the following software is installed:
 
-- **Java 17+** for running the Spring Boot backend
+- **Java 21+** for running the Spring Boot backend
 - **Node.js 14+** for managing the frontend and React development
 
 ---
@@ -98,27 +98,31 @@ cd backend
 mvn clean install
 ```
 
+#### **Environment Variables**
+
+Open the `application.properties` file located [here](./backend/src/main/resources/application.properties) and update your configurations:
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/<database_name>
+spring.datasource.username=<your_username>
+spring.datasource.password=<your_password>
+# create a folder named uploads
+upload.dir=C:/path/to/your/uploads/folder/
+```
+
 #### Run the Spring Boot application:
 
 Run the backend using the following command:
 
 ```bash
-mvn spring-boot:run    # For Maven
+mvn spring-boot:run
 ```
 
 Your Spring Boot API will be available at [http://localhost:8080](http://localhost:8080).
 
 ---
 
-## **Environment Variables**
 
-To configure your application, open the `application.properties` file located in the `backend` folder. Insert your MySQL database credentials:
-
-```properties
-spring.datasource.url=jdbc:mysql://<hostname>:<port>/<database_name>
-spring.datasource.username=<your_username>
-spring.datasource.password=<your_password>
-```
 
 ---
 
@@ -148,9 +152,3 @@ We welcome contributions to improve and expand the functionality of **JobHunter*
 ## **License**
 
 This project is licensed under the MIT License. For details, see the [LICENSE](LICENSE) file.
-
----
-
-## **Acknowledgments**
-
-A huge thank you to all contributors who made this project possible. 🎉
