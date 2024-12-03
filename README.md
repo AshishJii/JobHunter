@@ -133,7 +133,7 @@ This project exposes various APIs for managing job listings and applications. Th
 You can access the Swagger UI at:
 
 ```
-http://localhost:8080/swagger-ui/
+http://localhost:8080/swagger-ui/index.html
 ```
 
 ---

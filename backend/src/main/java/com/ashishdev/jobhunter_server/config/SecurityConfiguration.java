@@ -34,7 +34,7 @@ public class SecurityConfiguration {
                 .disable()
                 .cors().and()
                 .authorizeHttpRequests()
-                .requestMatchers("/auth/**", "/uploads/**")
+                .requestMatchers("/auth/**", "/swagger-ui/**","/uploads/**", "/v3/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
