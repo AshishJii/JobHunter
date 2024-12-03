@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 
 @Getter
@@ -24,4 +25,6 @@ public class RegisterUserDto {
 
     @Size(max = 255)
     private String skills;
+
+    private MultipartFile resume;
 }

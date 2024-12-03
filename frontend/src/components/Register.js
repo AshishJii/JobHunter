@@ -8,21 +8,31 @@ export default function Register() {
         email: '',
         password: '',
         cnpassword: '',
-        skills: '', // New field for skills
+        skills: '',
+        resume: null,
     });
 
     const handleRegister = async (e) => {
         e.preventDefault();
         console.log("Submitting: ", registerData);
 
-        // Note: Send async POST Call to server
         if (registerData.password !== registerData.cnpassword) {
             alert("Passwords do not match");
             return;
         }
 
         try {
-            const response = await axiosClient.post('http://localhost:8080/auth/signup', registerData);
+            // Use FormData to handle file upload
+            const formData = new FormData();
+            Object.keys(registerData).forEach((key) => {
+                formData.append(key, registerData[key]);
+            });
+
+            const response = await axiosClient.post('http://localhost:8080/auth/signupUser', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
             console.log("Registration successful: ", response.data);
             alert("User registered successfully");
         } catch (error) {
@@ -32,13 +42,19 @@ export default function Register() {
     };
 
     const handleChange = (e) => {
-        e.preventDefault();
         const { name, value } = e.target;
         setRegisterData({
             ...registerData,
             [name]: value,
         });
-        // console.log("Updated values: ", registerData);
+    };
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setRegisterData({
+            ...registerData,
+            resume: file, // Update the resume file
+        });
     };
 
     return (
@@ -52,6 +68,7 @@ export default function Register() {
                         type="text"
                         placeholder="Enter your name"
                         onChange={handleChange}
+                        required
                     />
                 </div>
                 <div>
@@ -61,6 +78,7 @@ export default function Register() {
                         type="text"
                         placeholder="Enter your mobile no"
                         onChange={handleChange}
+                        required
                     />
                 </div>
                 <div>
@@ -70,6 +88,7 @@ export default function Register() {
                         type="email"
                         placeholder="Enter your email"
                         onChange={handleChange}
+                        required
                     />
                 </div>
                 <div>
@@ -78,7 +97,10 @@ export default function Register() {
                         name="password"
                         type="password"
                         placeholder="**********"
+                        pattern=".{8,12}" 
+                        title="8 to 12 characters"
                         onChange={handleChange}
+                        required
                     />
                 </div>
                 <div>
@@ -88,6 +110,7 @@ export default function Register() {
                         type="password"
                         placeholder="**********"
                         onChange={handleChange}
+                        required
                     />
                 </div>
                 <div>
@@ -97,6 +120,16 @@ export default function Register() {
                         type="text"
                         placeholder="Enter your skills (comma separated)"
                         onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div>
+                    <label>Resume:(in pdf)</label>
+                    <input
+                        type="file"
+                        accept=".pdf"
+                        onChange={handleFileChange}
+                        required
                     />
                 </div>
                 <button type="submit">Register</button>

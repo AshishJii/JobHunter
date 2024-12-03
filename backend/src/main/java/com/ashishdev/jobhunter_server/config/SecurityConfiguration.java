@@ -34,7 +34,7 @@ public class SecurityConfiguration {
                 .disable()
                 .cors().and()
                 .authorizeHttpRequests()
-                .requestMatchers("/auth/**")
+                .requestMatchers("/auth/**", "/uploads/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

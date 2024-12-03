@@ -8,6 +8,7 @@ import com.ashishdev.jobhunter_server.service.AuthenticationService;
 import com.ashishdev.jobhunter_server.service.JwtService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RequestMapping("/auth")
 @RestController
@@ -25,6 +26,13 @@ public class AuthenticationController {
     public ResponseEntity<User> register(@RequestBody RegisterUserDto registerUserDto) {
         User registeredUser = authenticationService.signup(registerUserDto);
 
+        return ResponseEntity.ok(registeredUser);
+
+    }
+
+    @PostMapping("/signupUser")
+    public ResponseEntity<User> registerUser(@ModelAttribute RegisterUserDto registerUserDto) {
+        User registeredUser = authenticationService.signupUser(registerUserDto);
         return ResponseEntity.ok(registeredUser);
     }
 

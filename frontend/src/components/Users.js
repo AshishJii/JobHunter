@@ -44,6 +44,7 @@ const Users = () => {
                         <th>Mobile</th>
                         <th>Skills</th>
                         <th>Registered On</th>
+                        <th>Resume</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,8 +55,15 @@ const Users = () => {
                             <td>{user.email}</td>
                             <td>{user.mobile}</td>
                             <td>{user.skills}</td>
-
                             <td>{new Date(user.createdAt).toLocaleDateString()}</td>
+                            <td>
+                                <button
+                                    onClick={() => window.open(`http://localhost:8080/uploads/${user.id}.pdf`, "_blank")}
+                                    className="resume-button"
+                                >
+                                View Resume
+                                </button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

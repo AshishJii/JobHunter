@@ -66,11 +66,11 @@ export default function Login(){
             <form onSubmit={handleLogin} >
                 <div>
                     <label>Email:</label>
-                    <input name='email' type='email' placeholder='Enter your email' onChange={handleChange}/>
+                    <input name='email' type='email' placeholder='Enter your email' onChange={handleChange} required/>
                 </div>
                 <div>
                     <label>Password:</label>
-                    <input name='password' type='password' placeholder='**********' onChange={handleChange}/>
+                    <input name='password' type='password' placeholder='**********' onChange={handleChange} required/>
                 </div>
                 <button type='submit'>Login</button>
             </form>
