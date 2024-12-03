@@ -11,24 +11,27 @@
 
 ---
 
+## **UML Diagram**
+
+Below is the UML diagram that illustrates the architecture and relationships of the **JobHunter** application:
+
+<img src="./showcase/chatuml-diagram.png" alt="UML Diagram" width="600px">
+
+---
+
 ## **Screenshots**
 
 #### 1. **Home Page**
 
 <img src="./showcase/home.png" alt="Home Page" width="400px">
 
----
-
 #### 2. **Login/Registration Page**
 
 <img src="./showcase/login.png" alt="Login Page" width="400px"> <img src="./showcase/register.png" alt="Registration Page" width="400px">
 
----
-
 #### 3. **User Pages**
 
 <img src="./showcase/profile.png" alt="Profile Page" width="400px"> <img src="./showcase/jobs.png" alt="Profile Page" width="400px">
----
 
 #### 4. **Admin Panel**
 
